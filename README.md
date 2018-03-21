@@ -1,6 +1,6 @@
 # @whaaaley/hyperapp-node-to-xml-string
 
-> Renders Hyperapp's h function objects in any XML dialect as a string.
+> Renders Hyperapp nodes of any XML dialect as a string.
 
 ## Example
 
