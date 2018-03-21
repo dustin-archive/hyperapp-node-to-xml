@@ -1,4 +1,4 @@
-# @whaaaley/hyperapp-node-to-xml-string
+# @whaaaley/hyperapp-node-to-xml
 
 > Renders Hyperapp nodes of any XML dialect as a string.
 
@@ -7,7 +7,7 @@
 ```js
 import { h } from 'hyperapp'
 import fs from 'fs'
-import render from '@whaaaley/hyperapp-to-xml'
+import render from '@whaaaley/hyperapp-node-to-xml'
 
 const File = () =>
   h('div', null, [
