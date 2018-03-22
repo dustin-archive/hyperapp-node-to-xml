@@ -1,0 +1,21 @@
+{
+  "name": "hyperapp-node-to-xml",
+  "version": "0.0.0",
+  "description": "Render Hyperapp nodes as any XML dialect.",
+  "author": "Dustin Dowell <dustindowell2@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whaaaley/hyperapp-node-to-xml.git"
+  },
+  "bugs": {
+    "url": "https://github.com/whaaaley/hyperapp-node-to-xml/issues"
+  },
+  "homepage": "https://github.com/whaaaley/hyperapp-node-to-xml#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "hyperapp": "^1.2.0",
+    "tape": "^4.9.0"
+  }
+}

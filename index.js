@@ -23,23 +23,27 @@ var VOID = [
   'wbr'
 ]
 
-var join = arr => {
-  var result = ''
+const escapeRegExp = /["&'<>]/g
+const escapeLookup = new Map([
+  ['"', '&quot;'],
+  ['&', '&amp;'],
+  ["'", '&#39;'],
+  ['<', '&lt;'],
+  ['>', '&gt;']
+])
 
-  for (var i = 0; i < arr.length; i++) {
-    const node = arr[i]
+function render (node) {
+  const { nodeName, attributes, children } = node
 
-    node && (result += render(arr[i]))
+  var attrs = ''
+  for (var attr in attributes) {
+    attrs += ' ' + attr + '="' + (attributes[attr]).replace(escapeRegExp, escapeLookup) + '"'
   }
 
-  return result
-}
-
-var render = ({ nodeName, attributes, children }) => {
-  var attrs = ''
-
-  for (var attr in attributes) {
-    attrs += ' ' + attr + '="' + (attributes[attr] + '').replace(/"/g, '\\"') + '"'
+  var result = ''
+  for (var i = 0; i < children.length; i++) {
+    const node = children[i]
+    result += (typeof node === 'object' ? render(node) : node)
   }
 
   const el = '<' + nodeName + attrs
@@ -48,7 +52,7 @@ var render = ({ nodeName, attributes, children }) => {
     return el + '/>'
   }
 
-  return el + '>' + (Array.isArray(children) ? join(children) : children) + '</' + nodeName + '>'
+  return el + '>' + result + '</' + nodeName + '>'
 }
 
 module.exports = render
